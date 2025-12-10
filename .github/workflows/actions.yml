@@ -35,9 +35,10 @@ jobs:
 
       - name: SonarCloud Scan
         run: |
-          ./mvnw -B sonar:sonar \
+          ./mvnw -B org.sonarsource.scanner.maven:sonar-maven-plugin:4.0.0.4121:sonar \
             -Dsonar.projectKey=${{ env.SONAR_PROJECT_KEY }} \
             -Dsonar.organization=${{ env.SONAR_ORGANIZATION }} \
+            -Dsonar.host.url=https://sonarcloud.io \
             -Dsonar.login=${{ env.SONAR_TOKEN }}
 
       - name: SonarCloud Quality Gate
